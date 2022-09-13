@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Movies Lab</string>
+    <string name="popular_movies_title">Popular Movies</string>
+</resources>
