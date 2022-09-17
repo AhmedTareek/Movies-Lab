@@ -3,7 +3,6 @@ package com.watch.movieslab
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,10 +46,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        imageList.add(SlideModel(R.drawable.test5,ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.test3,ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.test6,ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.test7,ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster1,ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster2,ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster3,ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster4,ScaleTypes.CENTER_CROP))
         val imageSlider = findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)
         imageSlider.startSliding(3000)
