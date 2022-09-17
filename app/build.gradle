@@ -45,7 +45,11 @@ dependencies {
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    //picaso
+    //picasso
     implementation 'com.squareup.picasso:picasso:2.8'
+    //gifs
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    //Central Image Slideshow
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
 }

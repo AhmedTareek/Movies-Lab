@@ -2,51 +2,53 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="120dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="1dp">
 
 
-    <TextView
-        android:id="@+id/vote_average_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/release_date_label"
-        app:drawableStartCompat="@drawable/ic_star"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img"
-        tools:text="8.0" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/vote_average_label"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="15sp"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/release_date_label"-->
+    <!--        app:drawableStartCompat="@drawable/ic_star"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/poster_img"-->
+    <!--        tools:text="8.0" />-->
 
-    <TextView
-        android:id="@+id/release_date_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/vote_average_label"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img"
-        tools:text="2001" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/release_date_label"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="15sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/vote_average_label"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/poster_img"-->
+    <!--        tools:text="2001" />-->
 
-    <TextView
-        android:id="@+id/title_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:maxLines="3"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vote_average_label"
-        tools:text="God father" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/title_label"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:gravity="center"-->
+    <!--        android:maxLines="3"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/vote_average_label"-->
+    <!--        tools:text="God father" />-->
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/poster_img"
-        android:layout_width="120dp"
-        android:layout_height="180dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundposters"
         tools:src="@mipmap/ic_launcher" />
 
 
