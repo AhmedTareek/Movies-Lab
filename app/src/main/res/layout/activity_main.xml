@@ -72,6 +72,8 @@
             tools:listitem="@layout/popular_movies" />
 
 
+
+
 <!--        <com.google.android.material.imageview.ShapeableImageView-->
 <!--            android:id="@+id/central_image"-->
 <!--            android:layout_width="match_parent"-->

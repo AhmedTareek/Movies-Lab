@@ -51,5 +51,9 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     //Central Image Slideshow
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+    //Nav Bar
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+
 
 }
