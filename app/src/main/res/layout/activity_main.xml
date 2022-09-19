@@ -37,7 +37,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 app:iss_placeholder="@drawable/loading"
-               app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -73,24 +73,6 @@
 
 
 
-
-<!--        <com.google.android.material.imageview.ShapeableImageView-->
-<!--            android:id="@+id/central_image"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerInParent="true"-->
-<!--            android:layout_marginStart="15dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:layout_marginEnd="15dp"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            android:src="@drawable/jw4"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="1.0"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textView"-->
-<!--            app:shapeAppearanceOverlay="@style/roundimageview" />-->
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -104,55 +86,55 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/movies_collection_title2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/popular_movies_title"
-                    android:textColor="@color/primary_text_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/recycler_view2"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view"
-                    tools:text="lol" />
+        <TextView
+            android:id="@+id/movies_collection_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/popular_movies_title"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/recycler_view2"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view"
+            tools:text="lol" />
 
-                <TextView
-                    android:id="@+id/movies_collection_title3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/popular_movies_title"
-                    android:textColor="@color/primary_text_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/recycler_view2"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view2"
-                    tools:text="lol" />
+        <TextView
+            android:id="@+id/movies_collection_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/popular_movies_title"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/recycler_view2"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view2"
+            tools:text="lol" />
 
-                <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
 
-                    android:id="@+id/recycler_view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/movies_collection_title2"
-                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:listitem="@layout/popular_movies" />
+            android:id="@+id/recycler_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/movies_collection_title2"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/popular_movies" />
 
-                <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
 
-                    android:id="@+id/recycler_view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/movies_collection_title3"
-                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:listitem="@layout/popular_movies" />
+            android:id="@+id/recycler_view3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/movies_collection_title3"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/popular_movies" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

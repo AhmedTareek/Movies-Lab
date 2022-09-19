@@ -1,20 +1,25 @@
 package com.watch.movieslab
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import com.squareup.picasso.Picasso
 
-class MovieDetailsActivity: AppCompatActivity() {
+class MovieDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.movie_layout)
-        val currMovie: MovieDetails? = intent.getParcelableExtra("Movie")
-        val releaseDateLabel: TextView = findViewById(R.id.release_date_label)
-        val averageVoteLabel: TextView = findViewById(R.id.vote_average_label)
-        val titleLabel: TextView = findViewById(R.id.title_label)
-        releaseDateLabel.text = "${currMovie?.releaseDate}"
-        averageVoteLabel.text = "${currMovie?.rating}"
-        titleLabel.text = "${currMovie?.originalTitle}"
+        setContentView(R.layout.activity_movie_details)
+        val data = intent.getParcelableExtra<MovieDetails>("details")
+        val title = findViewById<TextView>(R.id.title_label)
+        title.text = data?.originalTitle
+        val vote  = findViewById<TextView>(R.id.vote_average_label)
+        vote.text = data?.rating.toString()
+        val image = findViewById<ImageView>(R.id.poster_img)
+        if (data?.poster != null) {
+            Picasso.get().load("$BASE_IMAGE_URL${data.poster}").into(image)
+        }
+
+
     }
 }
