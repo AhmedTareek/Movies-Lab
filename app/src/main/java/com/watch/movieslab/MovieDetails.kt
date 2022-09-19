@@ -9,6 +9,7 @@ data class MovieDetails (
    @SerializedName("release_date") val releaseDate:String?,
    @SerializedName("original_title") val originalTitle:String?,
    @SerializedName("vote_average") val rating:Float,
-   @SerializedName("poster_path") val poster:String?
+   @SerializedName("poster_path") val poster:String?,
+   @SerializedName("overview") val overview:String?,
    )  : Parcelable
 

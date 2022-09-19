@@ -19,6 +19,10 @@ class MovieDetailsActivity : AppCompatActivity() {
         if (data?.poster != null) {
             Picasso.get().load("$BASE_IMAGE_URL${data.poster}").into(image)
         }
+        val releaseDate = findViewById<TextView>(R.id.release_date_label)
+        releaseDate.text = data ?.releaseDate.toString()
+        val overview = findViewById<TextView>(R.id.overview_label)
+        overview.text=data ?.overview
 
 
     }
