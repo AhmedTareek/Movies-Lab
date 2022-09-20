@@ -1,64 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_dark"
-    tools:context=".MovieDetailsActivity">
-
-    <ImageView
-        android:id="@+id/poster_img"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/star_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_launcher_background" />
+    android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/star_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_star"
-        app:layout_constraintBottom_toTopOf="@+id/title_label"
-        app:layout_constraintEnd_toStartOf="@+id/divider1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img"
-        app:layout_constraintVertical_bias="0.351" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/background_dark">
 
-    <TextView
-        android:id="@+id/vote_average_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/secondary_text_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/star_icon"
-        app:layout_constraintTop_toBottomOf="@+id/star_icon"
-        tools:text="8.75" />
-
-    <TextView
-        android:id="@+id/release_date_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:textColor="@color/primary_text_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider2"
-        app:layout_constraintHorizontal_bias="0.433"
-        app:layout_constraintStart_toEndOf="@+id/divider1"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img"
-        tools:text="2022-07-20" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_dark"
+        tools:context=".MovieDetailsActivity">
 
 
-    <!--<TextView
+        <!--<TextView
        android:id="@+id/divider1"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -87,81 +50,164 @@
        app:layout_constraintTop_toTopOf="@+id/release_date_label"
        app:layout_constraintVertical_bias="0.461" />-->
 
-    <TextView
-        android:id="@+id/title_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:textColor="@color/primary_text_dark"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/overview_title"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/release_date_label"
-        tools:text="Thor: Love And Thunder" />
+        <ImageView
+            android:id="@+id/poster_img"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="28dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:id="@+id/overview_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/overview_title"
-        app:layout_constraintBottom_toTopOf="@+id/overview_label"
-        android:textColor="@color/primary_text_dark"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_label" />
+        <ImageView
+            android:id="@+id/star_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@+id/divider1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider1"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/overview_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/secondary_text_dark"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/overview_title"
-        tools:text="After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure to uncover the mystery of the God Butcher’s vengeance and stop him before it’s too late." />
+        <TextView
+            android:id="@+id/vote_average_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/star_icon"
+            app:layout_constraintStart_toStartOf="@+id/star_icon"
+            app:layout_constraintTop_toBottomOf="@+id/star_icon"
+            tools:text="8.75" />
 
-    <ImageView
-        android:id="@+id/vod_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/divider2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
-        app:layout_constraintStart_toEndOf="@+id/divider2"
-        app:layout_constraintTop_toTopOf="@+id/divider2"
-        android:src="@drawable/novod" />
+        <TextView
+            android:id="@+id/vod_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/VODtxt"
+            android:textColor="@color/secondary_text_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/vod_icon"
+            app:layout_constraintStart_toStartOf="@+id/vod_icon"
+            app:layout_constraintTop_toBottomOf="@+id/vod_icon" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="2dp"
-        android:layout_height="43dp"
+        <TextView
+            android:id="@+id/release_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/title_label"
+            app:layout_constraintEnd_toEndOf="@+id/poster_img"
+            app:layout_constraintStart_toStartOf="@+id/poster_img"
+            app:layout_constraintTop_toBottomOf="@+id/poster_img"
+            app:layout_constraintVertical_bias="0.415"
+            tools:text="2022-07-20" />
 
-        android:background="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/title_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/divider1"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img" />
+        <TextView
+            android:id="@+id/release_date_txt"
+            android:layout_width="123dp"
+            android:layout_height="30dp"
+            android:text="@string/releasedatetxt"
+            android:textColor="@color/secondary_text_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/release_date_label"
+            app:layout_constraintStart_toStartOf="@+id/release_date_label"
+            app:layout_constraintTop_toBottomOf="@+id/release_date_label" />
 
-    <View
-        android:id="@+id/divider1"
-        android:layout_width="2dp"
-        android:layout_height="43dp"
 
-        android:background="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/title_label"
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="@+id/title_label"
+            app:layout_constraintStart_toStartOf="@+id/title_label"
+            app:layout_constraintTop_toBottomOf="@+id/title_label" />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img" />
+        <TextView
+            android:id="@+id/title_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:scaleType="fitCenter"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/poster_img"
+            tools:text="Movie Name" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/overview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/overview_title"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/overview_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_label" />
+
+        <TextView
+            android:id="@+id/overview_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/secondary_text_dark"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/overview_title"
+            tools:text="After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure to uncover the mystery of the God Butcher’s vengeance and stop him before it’s too late." />
+
+        <ImageView
+            android:id="@+id/vod_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/novod"
+            app:layout_constraintBottom_toBottomOf="@+id/divider2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider2"
+            app:layout_constraintVertical_bias="0.266" />
+
+        <TextView
+            android:id="@+id/divider2"
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:background="#ffffff"
+            app:layout_constraintBottom_toBottomOf="@+id/release_date_txt"
+            app:layout_constraintEnd_toStartOf="@+id/vod_icon"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toEndOf="@+id/release_date_label"
+            app:layout_constraintTop_toTopOf="@+id/release_date_label" />
+
+        <TextView
+            android:id="@+id/divider1"
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:background="#ffffff"
+            app:layout_constraintBottom_toBottomOf="@+id/release_date_txt"
+            app:layout_constraintEnd_toStartOf="@+id/release_date_label"
+            app:layout_constraintStart_toEndOf="@+id/star_icon"
+            app:layout_constraintTop_toTopOf="@+id/release_date_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</RelativeLayout>
