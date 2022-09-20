@@ -13,4 +13,11 @@ interface MovieLabService {
         @Query("page") page: Int
     ):  Call<TMDbGetPopularMoviesResponse>
 
+
+    @GET("movie/top_rated")
+    fun getTopRatedMovies(
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("page") page: Int
+    ):  Call<TMDbGetPopularMoviesResponse>
+
 }

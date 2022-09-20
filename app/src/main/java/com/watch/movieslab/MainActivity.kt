@@ -87,16 +87,31 @@ class MainActivity : AppCompatActivity() {
             onError = {
                 Toast.makeText(this, "shit", Toast.LENGTH_LONG).show()
             })
+
+        TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,
+            onError = {
+                Toast.makeText(this, "top rated not here", Toast.LENGTH_LONG).show()
+            })
     }
 
     private fun onPopularMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
 //        loadingBar.visibility = View.GONE
         recyclerView.visibility = View.VISIBLE
         recyclerView.adapter = MovieAdapter(movieResponse.movies)
-        recyclerView2.visibility = View.VISIBLE
-        recyclerView2.adapter = MovieAdapter(movieResponse.movies)
+       // recyclerView2.visibility = View.VISIBLE
+       // recyclerView2.adapter = MovieAdapter(movieResponse.movies)
         recyclerView3.visibility = View.VISIBLE
         recyclerView3.adapter = MovieAdapter(movieResponse.movies)
+    }
+
+    private fun onTopRatedMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
+//        loadingBar.visibility = View.GONE
+     //   recyclerView.visibility = View.VISIBLE
+       // recyclerView.adapter = MovieAdapter(movieResponse.movies)
+        recyclerView2.visibility = View.VISIBLE
+        recyclerView2.adapter = MovieAdapter(movieResponse.movies)
+        //recyclerView3.visibility = View.VISIBLE
+       //recyclerView3.adapter = MovieAdapter(movieResponse.movies)
     }
 
     //Fragment Related Function Start
