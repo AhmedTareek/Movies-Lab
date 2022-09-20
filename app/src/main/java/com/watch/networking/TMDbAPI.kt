@@ -62,5 +62,31 @@ object TMDbAPI {
     }
 
 
+    fun requestTrendingMovies(
+        page:Int=1,
+        onSuccess: (getPopularMoviesResponse: TMDbGetPopularMoviesResponse) -> Unit,
+        onError: () -> Unit
+    ) {
+        movieService.getTrendingMovies().enqueue(object : Callback<TMDbGetPopularMoviesResponse> {
+            override fun onResponse(call: Call<TMDbGetPopularMoviesResponse>, response: Response<TMDbGetPopularMoviesResponse>) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        onSuccess.invoke(responseBody)
+                    } else {
+                        onError.invoke()
+                    }
+                } else {
+                    onError.invoke()
+                }
+            }
+            override fun onFailure(call: Call<TMDbGetPopularMoviesResponse>, t: Throwable) {
+                onError.invoke()
+                println(t.message)
+            }
+        })
+    }
+
+
 }
 

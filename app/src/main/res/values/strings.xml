@@ -2,6 +2,7 @@
     <string name="app_name">Movies Lab</string>
     <string name="popular_movies_title">Popular Movies</string>
     <string name="top_rated_movies_title">Top Rated Movies</string>
+    <string name="trending_movies_title">Trending Movies</string>
     <string name="overview_title">Overview</string>
     <string name="movies">Movies</string>
     <string name="lab">Lab</string>
