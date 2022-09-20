@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_dark"
+    tools:context=".MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
     tools:context=".MovieDetailsActivity">
+
 
     <ImageView
         android:id="@+id/poster_img"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@id/star_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_launcher_background" />
-
 
     <ImageView
         android:id="@+id/star_icon"
@@ -26,6 +33,7 @@
         android:src="@drawable/ic_star"
         app:layout_constraintBottom_toTopOf="@+id/title_label"
         app:layout_constraintEnd_toStartOf="@+id/divider1"
+        app:layout_constraintHorizontal_bias="0.635"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poster_img"
         app:layout_constraintVertical_bias="0.351" />
@@ -148,8 +156,10 @@
         android:background="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/title_label"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.626"
         app:layout_constraintStart_toEndOf="@+id/divider1"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img" />
+        app:layout_constraintTop_toBottomOf="@+id/poster_img"
+        app:layout_constraintVertical_bias="0.583" />
 
     <View
         android:id="@+id/divider1"
@@ -160,8 +170,10 @@
         app:layout_constraintBottom_toTopOf="@+id/title_label"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poster_img" />
+        app:layout_constraintTop_toBottomOf="@+id/poster_img"
+        app:layout_constraintVertical_bias="0.583" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
