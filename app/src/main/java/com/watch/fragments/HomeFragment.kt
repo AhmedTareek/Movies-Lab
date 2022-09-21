@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isNotEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
     // Create image list
     private val imageList = ArrayList<SlideModel>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,7 +39,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val homeView =inflater.inflate(R.layout.fragment_home, container, false)
+        val homeView = inflater.inflate(R.layout.fragment_home, container, false)
 
         recyclerView = homeView.findViewById(R.id.recycler_view)
         recyclerView2 = homeView.findViewById(R.id.recycler_view2)
@@ -57,12 +59,8 @@ class HomeFragment : Fragment() {
 
 
         // Image Slider Start
-        imageList.add(SlideModel(R.drawable.poster1, ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.poster2, ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.poster3, ScaleTypes.CENTER_CROP))
-        imageList.add(SlideModel(R.drawable.poster4, ScaleTypes.CENTER_CROP))
         val imageSlider = homeView.findViewById<ImageSlider>(R.id.image_slider)
-        imageSlider.setImageList(imageList)
+        imageSlider.setImageList(slideShowLoadingImages())
         imageSlider.startSliding(3000)
         // Image Slider End
 
@@ -76,7 +74,7 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "top rated not here", Toast.LENGTH_LONG).show()
             })
 
-      val any =  TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
+        TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
             onError = {
                 Toast.makeText(requireContext(), "trending not here", Toast.LENGTH_LONG).show()
             })
@@ -85,6 +83,23 @@ class HomeFragment : Fragment() {
 
         return homeView
     }
+
+
+    //function loads slide show images only one
+
+
+    private fun slideShowLoadingImages(): ArrayList<SlideModel> {
+        if (imageList.isEmpty()) {
+            imageList.add(SlideModel(R.drawable.poster1, ScaleTypes.CENTER_CROP))
+            imageList.add(SlideModel(R.drawable.poster2, ScaleTypes.CENTER_CROP))
+            imageList.add(SlideModel(R.drawable.poster3, ScaleTypes.CENTER_CROP))
+            imageList.add(SlideModel(R.drawable.poster4, ScaleTypes.CENTER_CROP))
+        }
+        return imageList
+    }
+
+
+    // functions fetching the movies showed in home page
     private fun onPopularMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
         recyclerView.visibility = View.VISIBLE
         recyclerView.adapter = MovieAdapter(movieResponse.movies)
@@ -99,7 +114,6 @@ class HomeFragment : Fragment() {
         recyclerView3.visibility = View.VISIBLE
         recyclerView3.adapter = MovieAdapter(movieResponse.movies)
     }
-
-
-
 }
+
+
