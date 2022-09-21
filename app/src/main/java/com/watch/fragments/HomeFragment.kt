@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
     //function loads slide show images only one
 
 
-    private fun slideShowLoadingImages(): ArrayList<SlideModel> {
+   private fun slideShowLoadingImages(): ArrayList<SlideModel> {
         if (imageList.isEmpty()) {
             imageList.add(SlideModel(R.drawable.poster1, ScaleTypes.CENTER_CROP))
             imageList.add(SlideModel(R.drawable.poster2, ScaleTypes.CENTER_CROP))
