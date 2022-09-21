@@ -5,61 +5,101 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
+import com.watch.movieslab.MovieAdapter
 import com.watch.movieslab.R
+import com.watch.networking.TMDbAPI
+import com.watch.networking.TMDbGetPopularMoviesResponse
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView2: RecyclerView
+    private lateinit var recyclerView3: RecyclerView
 
+    // Create image list
+    private val imageList = ArrayList<SlideModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_main, container, false)
 
+        val homeView =inflater.inflate(R.layout.fragment_home, container, false)
+
+        recyclerView = homeView.findViewById(R.id.recycler_view)
+        recyclerView2 = homeView.findViewById(R.id.recycler_view2)
+        recyclerView3 = homeView.findViewById(R.id.recycler_view3)
+        recyclerView.visibility = View.INVISIBLE
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        recyclerView2.visibility = View.INVISIBLE
+        recyclerView2.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+
+        recyclerView3.visibility = View.INVISIBLE
+        recyclerView3.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+
+        // Image Slider Start
+        imageList.add(SlideModel(R.drawable.poster1, ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster2, ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster3, ScaleTypes.CENTER_CROP))
+        imageList.add(SlideModel(R.drawable.poster4, ScaleTypes.CENTER_CROP))
+        val imageSlider = homeView.findViewById<ImageSlider>(R.id.image_slider)
+        imageSlider.setImageList(imageList)
+        imageSlider.startSliding(3000)
+        // Image Slider End
+
+        TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
+            onError = {
+                Toast.makeText(requireContext(), "shit", Toast.LENGTH_LONG).show()
+            })
+
+        TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,
+            onError = {
+                Toast.makeText(requireContext(), "top rated not here", Toast.LENGTH_LONG).show()
+            })
+
+      val any =  TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
+            onError = {
+                Toast.makeText(requireContext(), "trending not here", Toast.LENGTH_LONG).show()
+            })
+
+
+
+        return homeView
+    }
+    private fun onPopularMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
+        recyclerView.visibility = View.VISIBLE
+        recyclerView.adapter = MovieAdapter(movieResponse.movies)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun onTopRatedMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
+        recyclerView2.visibility = View.VISIBLE
+        recyclerView2.adapter = MovieAdapter(movieResponse.movies)
     }
+
+    private fun onTrendingMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
+        recyclerView3.visibility = View.VISIBLE
+        recyclerView3.adapter = MovieAdapter(movieResponse.movies)
+    }
+
 
 
 }
