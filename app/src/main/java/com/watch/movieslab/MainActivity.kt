@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
@@ -22,15 +21,16 @@ class MainActivity : AppCompatActivity() {
 
     //    private lateinit var loadingBar: ProgressBar
     private lateinit var navbar: NavigationBarView
-    private lateinit var recyclerView: RecyclerView
+  /*  private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerView2: RecyclerView
-    private lateinit var recyclerView3: RecyclerView
+    private lateinit var recyclerView3: RecyclerView */
 
     //fragments
     private val homeFragment = HomeFragment();
     private val favoritesFragment = FavoritesFragment();
 
-    private val imageList = ArrayList<SlideModel>() // Create image list
+    // Create image list
+    //private val imageList = ArrayList<SlideModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,14 +39,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // initiate variables of recycler view and set its parameters
 
-
-
-
-        recyclerView = findViewById(R.id.recycler_view)
+       /* recyclerView = findViewById(R.id.recycler_view)
         recyclerView2 = findViewById(R.id.recycler_view2)
         recyclerView3 = findViewById(R.id.recycler_view3)
-//        loadingBar = findViewById(R.id.loading_bar)
         recyclerView.visibility = View.INVISIBLE
         recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -54,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView2.visibility = View.INVISIBLE
         recyclerView2.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
 
         recyclerView3.visibility = View.INVISIBLE
         recyclerView3.layoutManager =
@@ -68,7 +66,10 @@ class MainActivity : AppCompatActivity() {
         val imageSlider = findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)
         imageSlider.startSliding(3000)
-        // Image Slider End
+        // Image Slider End */
+
+
+        replaceFragment(homeFragment)
 
         //Navbar start
         navbar = findViewById(R.id.nav_bar);
@@ -84,8 +85,9 @@ class MainActivity : AppCompatActivity() {
             true
         }
         //Navbar end
+        // API fetching functions
 
-        TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
+    /*    TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
             onError = {
                 Toast.makeText(this, "shit", Toast.LENGTH_LONG).show()
             })
@@ -98,17 +100,16 @@ class MainActivity : AppCompatActivity() {
         TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
             onError = {
                 Toast.makeText(this, "trending not here", Toast.LENGTH_LONG).show()
-            })
+            }) */
 
     }
 
-    private fun onPopularMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
+   /* private fun onPopularMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
         recyclerView.visibility = View.VISIBLE
         recyclerView.adapter = MovieAdapter(movieResponse.movies)
     }
 
     private fun onTopRatedMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
-
         recyclerView2.visibility = View.VISIBLE
         recyclerView2.adapter = MovieAdapter(movieResponse.movies)
     }
@@ -116,12 +117,11 @@ class MainActivity : AppCompatActivity() {
     private fun onTrendingMoviesFetched(movieResponse: TMDbGetPopularMoviesResponse) {
         recyclerView3.visibility = View.VISIBLE
         recyclerView3.adapter = MovieAdapter(movieResponse.movies)
-    }
+    }*/
 
     //Fragment Related Function Start
     private fun replaceFragment(fragment: Fragment) {
-
-        val fragments = supportFragmentManager.beginTransaction();
+        val fragments = supportFragmentManager.beginTransaction()
         fragments.replace(R.id.fragment_container, fragment)
         fragments.commit()
     }
