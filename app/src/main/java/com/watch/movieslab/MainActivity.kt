@@ -1,9 +1,12 @@
 package com.watch.movieslab
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +30,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getSharedPreferences("com_watch_movieslab_share_prf", Context.MODE_PRIVATE).edit {
+            clear()
+                .commit()
+        }
         setContentView(R.layout.activity_main)
         // set first screen
         replaceFragment(homeFragment)
@@ -46,6 +53,8 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
     //Fragment Related Function Start
     private fun replaceFragment(fragment: Fragment) {
         val fragments = supportFragmentManager.beginTransaction()
