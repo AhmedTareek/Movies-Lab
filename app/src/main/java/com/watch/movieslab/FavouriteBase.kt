@@ -1,6 +1,6 @@
 package com.watch.movieslab
 
-object favouriteBase {
+object FavouriteBase {
     private val favouriteListOfMovies =mutableListOf<MovieDetails>()
     fun setFavouriteListOfMovies(movie:MovieDetails){
 
@@ -10,5 +10,9 @@ object favouriteBase {
 
     fun getFavouriteListOfMovies (): MutableList<MovieDetails> {
         return favouriteListOfMovies
+    }
+
+    fun removeFromListOfMovies(movie:MovieDetails){
+        favouriteListOfMovies.remove(movie)
     }
 }

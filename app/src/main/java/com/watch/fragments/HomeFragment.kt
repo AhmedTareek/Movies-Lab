@@ -93,7 +93,7 @@ class HomeFragment : Fragment() {
         }*/
          TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
             onError = {
-                Toast.makeText(requireContext(), "shit", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Popular Movies not here", Toast.LENGTH_LONG).show()
             })
 
          TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,

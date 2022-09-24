@@ -36,17 +36,26 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         favoritesSwitch.setOnCheckedChangeListener { _, isChecked ->
 
-                val favDB=favouriteBase
+                val favDB=FavouriteBase
 
-                    favDB.setFavouriteListOfMovies(data!!)
+                    if (isChecked) {
+                        favDB.setFavouriteListOfMovies(data!!)
+                        Toast.makeText(
+                            this@MovieDetailsActivity,
+                            "added to favourite",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }else {
+                        favDB.removeFromListOfMovies(data!!)
+                        Toast.makeText(
+                            this@MovieDetailsActivity,
+                            "removed from favourite",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                   mySharedPreferences.edit {
                       putBoolean(data?.originalTitle,isChecked)
                           .commit()
-                      Toast.makeText(
-                          this@MovieDetailsActivity,
-                          "i made this",
-                          Toast.LENGTH_LONG
-                      ).show()
 
         }
        }
