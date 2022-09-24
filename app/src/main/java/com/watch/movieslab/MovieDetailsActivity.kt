@@ -56,23 +56,3 @@ class MovieDetailsActivity : AppCompatActivity() {
                   mySharedPreferences.edit {
                       putBoolean(data?.originalTitle,isChecked)
                           .commit()
-
-        }
-       }
-
-        val title = findViewById<TextView>(R.id.title_label)
-        title.text = data?.originalTitle
-        val vote  = findViewById<TextView>(R.id.vote_average_label)
-        vote.text = data?.rating.toString()
-        val image = findViewById<ImageView>(R.id.poster_img)
-        if (data?.poster != null) {
-            Picasso.get().load("$BASE_IMAGE_URL${data.poster}").into(image)
-        }
-        val releaseDate = findViewById<TextView>(R.id.release_date_label)
-        releaseDate.text = data ?.releaseDate.toString()
-        val overview = findViewById<TextView>(R.id.overview_label)
-        overview.text=data ?.overview
-
-
-    }
-}
