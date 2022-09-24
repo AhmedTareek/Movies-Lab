@@ -5,10 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.watch.movieslab.MovieAdapter
+import com.watch.movieslab.MovieDetails
 import com.watch.movieslab.R
+import com.watch.movieslab.favouriteBase
 
 
 class FavoritesFragment : Fragment() {
+
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +29,30 @@ class FavoritesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        val favView = inflater.inflate(R.layout.fragment_favorites, container, false)
+
+        val favDB = favouriteBase
+
+        recyclerView = favView.findViewById(R.id.favorite_list_recyclerview)
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        var favListOfMovies = favDB.getFavouriteListOfMovies()
+        if (favListOfMovies.isNotEmpty()) {
+            showFavouritePage(favListOfMovies)
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "There is no favourite Movie until Now",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        return favView
+    }
+
+    private fun showFavouritePage(list: MutableList<MovieDetails>) {
+        recyclerView.visibility = View.VISIBLE
+        recyclerView.adapter = MovieAdapter(list)
     }
 
 }

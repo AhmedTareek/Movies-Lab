@@ -109,7 +109,7 @@
                 android:layout_marginTop="140dp"
                 android:scaleType="fitCenter"
                 android:textColor="@color/primary_text_dark"
-                android:textSize="35sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.511"
@@ -175,6 +175,20 @@
                 app:layout_constraintEnd_toStartOf="@+id/release_date_label"
                 app:layout_constraintStart_toEndOf="@+id/star_icon"
                 app:layout_constraintTop_toTopOf="@+id/release_date_label" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/favorite_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="Favourite"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toTopOf="@+id/overview_title"
+                app:layout_constraintEnd_toStartOf="@+id/title_label"
+                app:layout_constraintHorizontal_bias="0.19"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vote_average_label"
+                app:layout_constraintVertical_bias="0.4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

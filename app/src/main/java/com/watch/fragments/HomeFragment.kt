@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.core.view.isNotEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,7 @@ import com.watch.movieslab.MovieAdapter
 import com.watch.movieslab.R
 import com.watch.networking.TMDbAPI
 import com.watch.networking.TMDbGetPopularMoviesResponse
+import kotlin.properties.Delegates
 
 
 class HomeFragment : Fragment() {
@@ -23,6 +25,10 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerView2: RecyclerView
     private lateinit var recyclerView3: RecyclerView
+  /*  private lateinit var ur1:Unit
+    private lateinit var ur2:Unit
+    private lateinit var ur3:Unit
+    private var flog by Delegates.notNull<Boolean>()*/
 
     // Create image list
     private val imageList = ArrayList<SlideModel>()
@@ -63,24 +69,42 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(slideShowLoadingImages())
         imageSlider.startSliding(3000)
         // Image Slider End
-
-        TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
+  /*   flog=false
+    fun getData(){
+       ur1= TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
             onError = {
                 Toast.makeText(requireContext(), "shit", Toast.LENGTH_LONG).show()
             })
 
-        TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,
+       ur2= TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,
             onError = {
                 Toast.makeText(requireContext(), "top rated not here", Toast.LENGTH_LONG).show()
             })
 
-        TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
+        ur3= TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
             onError = {
                 Toast.makeText(requireContext(), "trending not here", Toast.LENGTH_LONG).show()
             })
 
+    }
+        if (!flog){
+            flog=true
+            getData()
+        }*/
+         TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
+            onError = {
+                Toast.makeText(requireContext(), "shit", Toast.LENGTH_LONG).show()
+            })
 
+         TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,
+            onError = {
+                Toast.makeText(requireContext(), "top rated not here", Toast.LENGTH_LONG).show()
+            })
 
+         TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
+            onError = {
+                Toast.makeText(requireContext(), "trending not here", Toast.LENGTH_LONG).show()
+            })
         return homeView
     }
 
