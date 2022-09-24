@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.watch.movieslab.MovieAdapter
-import com.watch.movieslab.MovieDetails
-import com.watch.movieslab.R
-import com.watch.movieslab.favouriteBase
+import com.watch.movieslab.*
 
 
 class FavoritesFragment : Fragment() {
@@ -31,7 +28,7 @@ class FavoritesFragment : Fragment() {
 
         val favView = inflater.inflate(R.layout.fragment_favorites, container, false)
 
-        val favDB = favouriteBase
+        val favDB = FavouriteBase
 
         recyclerView = favView.findViewById(R.id.favorite_list_recyclerview)
         recyclerView.layoutManager =

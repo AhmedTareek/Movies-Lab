@@ -36,34 +36,23 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         favoritesSwitch.setOnCheckedChangeListener { _, isChecked ->
 
-                val favDB=favouriteBase
+                val favDB=FavouriteBase
 
-                    favDB.setFavouriteListOfMovies(data!!)
+                    if (isChecked) {
+                        favDB.setFavouriteListOfMovies(data!!)
+                        Toast.makeText(
+                            this@MovieDetailsActivity,
+                            "added to favourite",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }else {
+                        favDB.removeFromListOfMovies(data!!)
+                        Toast.makeText(
+                            this@MovieDetailsActivity,
+                            "removed from favourite",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                   mySharedPreferences.edit {
                       putBoolean(data?.originalTitle,isChecked)
                           .commit()
-                      Toast.makeText(
-                          this@MovieDetailsActivity,
-                          "Added to favourites",
-                          Toast.LENGTH_LONG
-                      ).show()
-
-        }
-       }
-
-        val title = findViewById<TextView>(R.id.title_label)
-        title.text = data?.originalTitle
-        val vote  = findViewById<TextView>(R.id.vote_average_label)
-        vote.text = data?.rating.toString()
-        val image = findViewById<ImageView>(R.id.poster_img)
-        if (data?.poster != null) {
-            Picasso.get().load("$BASE_IMAGE_URL${data.poster}").into(image)
-        }
-        val releaseDate = findViewById<TextView>(R.id.release_date_label)
-        releaseDate.text = data ?.releaseDate.toString()
-        val overview = findViewById<TextView>(R.id.overview_label)
-        overview.text=data ?.overview
-
-
-    }
-}
