@@ -15,9 +15,6 @@ class MovieAdapter(private val moviesDetails: List<MovieDetails>?) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     inner class MovieViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
-        //        var releaseDate: TextView
-//        var rating: TextView
-//        var title: TextView
         var poster: ImageView
 
         init {
@@ -26,15 +23,12 @@ class MovieAdapter(private val moviesDetails: List<MovieDetails>?) :
                 val currMovie = moviesDetails?.get(layoutPosition)
                 val intent = Intent(v.context,MovieDetailsActivity::class.java).apply {
                     putExtra("details",currMovie)
-
                 }
                 v.context.startActivity(intent)
 
 
             }
-//            releaseDate = v.findViewById(R.id.release_date_label)
-//            rating = v.findViewById(R.id.vote_average_label)
-//            title = v.findViewById(R.id.title_label)
+
             poster = v.findViewById(R.id.poster_img)
         }
     }
@@ -48,9 +42,6 @@ class MovieAdapter(private val moviesDetails: List<MovieDetails>?) :
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currPost = moviesDetails?.get(position)
-//        holder.releaseDate.text = currPost?.releaseDate?.substring(0, 4) //get only the year as string is in YYYY-MM-DD format
-//        holder.rating.text = currPost?.rating.toString()
-//        holder.title.text = currPost?.originalTitle
         if (currPost?.poster != null) {
             Picasso.get().load("$BASE_IMAGE_URL${currPost.poster}").into(holder.poster)
         }
