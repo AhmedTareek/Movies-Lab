@@ -25,12 +25,6 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerView2: RecyclerView
     private lateinit var recyclerView3: RecyclerView
-  /*  private lateinit var ur1:Unit
-    private lateinit var ur2:Unit
-    private lateinit var ur3:Unit
-    private var flog by Delegates.notNull<Boolean>()*/
-
-    // Create image list
     private val imageList = ArrayList<SlideModel>()
 
 
@@ -69,28 +63,6 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(slideShowLoadingImages())
         imageSlider.startSliding(3000)
         // Image Slider End
-  /*   flog=false
-    fun getData(){
-       ur1= TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
-            onError = {
-                Toast.makeText(requireContext(), "shit", Toast.LENGTH_LONG).show()
-            })
-
-       ur2= TMDbAPI.requestTopRatedMovies(onSuccess = ::onTopRatedMoviesFetched,
-            onError = {
-                Toast.makeText(requireContext(), "top rated not here", Toast.LENGTH_LONG).show()
-            })
-
-        ur3= TMDbAPI.requestTrendingMovies(onSuccess = ::onTrendingMoviesFetched,
-            onError = {
-                Toast.makeText(requireContext(), "trending not here", Toast.LENGTH_LONG).show()
-            })
-
-    }
-        if (!flog){
-            flog=true
-            getData()
-        }*/
          TMDbAPI.requestPopularMovies(onSuccess = ::onPopularMoviesFetched,
             onError = {
                 Toast.makeText(requireContext(), "Popular Movies not here", Toast.LENGTH_LONG).show()
