@@ -44,7 +44,7 @@ class MovieDetailsActivity : AppCompatActivity() {
                           .commit()
                       Toast.makeText(
                           this@MovieDetailsActivity,
-                          "i made this",
+                          "Added to favourites",
                           Toast.LENGTH_LONG
                       ).show()
 
